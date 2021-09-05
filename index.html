@@ -51,6 +51,12 @@
             z-index: 1;
         }
         
+        @media(max-width: 599px) {
+            .menu-items.active {
+                display: block;
+             }
+        }
+        
 
         .menu-items > * {
             display: block;        
@@ -203,14 +209,15 @@
 
         @media only screen and (min-width: 600px) {
             .dropdown-menu-icon{
-                display: none ;
+                display: none;
             }
             
             .menu-items{
-                display: flex !important;
-                background-color: transparent ;
+                display: flex;
+                background-color: transparent;
                 /*align-items: center;*/
             }
+            
             .introductory-content{
                 background-position: center;
             }
@@ -273,8 +280,9 @@
         const dropDownIcon=document.querySelector(".dropdown-menu-icon")
         
         dropDownIcon.addEventListener('click', ()=>{
-            const dropDownMenu_state=window.getComputedStyle(dropDownMenu, null).display;            
-            (dropDownMenu_state == "none") ? dropDownMenu.style.display="block" : dropDownMenu.style.display="none"
+//             const dropDownMenu_state=window.getComputedStyle(dropDownMenu, null).display;            
+//             (dropDownMenu_state == "none") ? dropDownMenu.style.display="block" : dropDownMenu.style.display="none"
+                dropDownMenu.classList.toggle('active')
         })
     </script>
 </body>
