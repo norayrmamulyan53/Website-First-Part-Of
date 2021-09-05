@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General styles */
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: gray;
+        }
+
+        body{
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Header section*/
+
+        .header{
+            display: flex;
+            justify-content: space-between;
+            flex: 0 1 auto;
+            padding: 2em 3em;
+            border-bottom: 2px solid lightgray;
+            height: 7em;
+        }
+        .logo{
+            display: flex;
+            align-items: center;
+
+        }
+        .menu{
+            display: flex;
+            justify-content: right;
+            align-items: flex-end;
+            flex-direction: column;
+        }
+
+        .menu-items{
+            display: none;
+            background-color:rgba(233, 243, 236, 0.704);
+            z-index: 1;
+        }
+        
+
+        .menu-items > * {
+            display: block;        
+            padding: 1em;    
+        }
+        
+        .brand-icons{
+            display: flex;
+            justify-content: space-between;
+            min-width: 7em;
+        }
+        .brand-icons img {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        /* Curve shape */
+        .curve-shape{
+            margin-top: -2.5em;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            height: 2.5em;
+        }
+
+        #curved-corner-bottomleft,
+        #curved-corner-bottomright{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #curved-corner-bottomleft:before,
+        #curved-corner-bottomright:before{
+            content: "";
+            display: block;
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        #curved-corner-bottomleft{
+            transform: translateX(-51px) translateY(-60px);
+        }
+
+        #curved-corner-bottomright{
+            transform: translateX(52px) translateY(-60px);
+        }
+
+        #curved-corner-bottomleft:before {
+            bottom: 0;
+            left: 0;
+            box-shadow: -50px 170px 0 0 white;
+        }
+
+        #curved-corner-bottomright:before {
+            bottom: 0;
+            right: 0;
+            box-shadow: 50px 170px 0 0 white;
+        }
+
+        #egg {
+            display: flex;
+            justify-content: center;
+            padding: .5em;
+            width: 100px;
+            height: 120px;
+            border-radius: 60% 60% 0 0;
+            background-color: white;  
+            border: 1px soild gray;
+        }
+
+        /* Introductory Section */
+
+        .introductory-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex: 1 1 auto;
+            height: 70vh;
+            
+            background-image: url("images/introductory-section.jpg");
+            background-position: bottom left;
+            background-size: cover;
+            background-repeat: no-repeat, repeat;
+        }
+        .introductory-content > * {
+            text-align: center;
+            padding-bottom: 1em;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 10em;
+            min-height: 3em;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            font-weight: 700;
+            color: #313133;
+            background: #d1994f;
+            background: linear-gradient(90deg, rgba(255, 132, 0, 0.904) 0%, rgba(255, 132, 0, 0.904) 100%);
+            border: none;
+            border-radius: 2em;
+            box-shadow: 1em 1em 2em rgba(209, 142, 79, 0.64);
+            transition: all 0.3s ease-in-out 0s;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            padding: 1em;
+        }
+        button > p {
+            color:white
+        }
+
+        button::before {
+            content: '';
+            border-radius: 3em;
+            min-width: calc(10em + 1em);
+            min-height: calc(3em + 1em);
+            border: 0.3em solid #d1994f;
+            box-shadow: 0 0 5em rgba(209, 142, 79, 0.64);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all .3s ease-in-out 0s;
+        }
+
+        .button:hover, .button:focus {
+            color: #313133;
+            transform: translateY(-6px);
+        }
+
+
+        /* Partners Section */
+        .partners-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+ 
+
+        @media only screen and (min-width: 600px) {
+            .dropdown-menu-icon{
+                display: none ;
+            }
+            
+            .menu-items{
+                display: flex !important;
+                background-color: transparent ;
+                /*align-items: center;*/
+            }
+            .introductory-content{
+                background-position: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/openkey-logo.png" alt="" width="150em" height="40em">
+        </div>
+        <div class="menu">
+            <img src="images/dropdown-icon.png" class="dropdown-menu-icon" alt="" width="50px" height="50px">
+            <div class="menu-items">
+                <a href="#">HOTELS</a>
+                <a href="#">GUESTS</a>
+                <a href="#">BLOG</a>
+
+                <div class="brand-icons">
+                    <a href="#" class="apple-icon">
+                        <img src="images/apple.png" alt="">
+                    </a>
+                    <a href="#" class="android-icon">
+                        <img src="images/android.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="introductory-section">
+        <div class="introductory-content">
+            <h1 style="font-size: 1.8em;"><span style="font-weight: lighter;">Unlock</span> <span style="font-weight: bold;">Travel Intelligence.</span> </h3>
+            <h2 style="font-size: 1em;">The universal standart for mobile keyless hotel access has arrived</h2>
+            <button class="button">
+                <p>LEARN MORE</p> 
+                <img src="images/arrow-right.png" alt="" width="10em" height="10em">
+            </button>
+        </div>
+        <div class="down-arrow"></div>
+    </section>
+
+    <section class="partners-section">
+        <div class="curve-shape">
+            <div id="curved-corner-bottomright"></div>   
+            <div id="egg">
+                <img src="images/down-arrow.png" alt="" width="20em" height="20em">
+            </div>   
+            <div id="curved-corner-bottomleft"></div>   
+        </div>
+
+        <h1 style="font-size: 1.8em;margin-top:2em"><span style="font-weight: lighter;">Brands We Work With</span></h3>
+    </section>
+    
+
+
+
+    <script>
+        const dropDownMenu=document.querySelector('.menu-items')
+        const dropDownIcon=document.querySelector(".dropdown-menu-icon")
+        
+        dropDownIcon.addEventListener('click', ()=>{
+            const dropDownMenu_state=window.getComputedStyle(dropDownMenu, null).display;            
+            (dropDownMenu_state == "none") ? dropDownMenu.style.display="block" : dropDownMenu.style.display="none"
+        })
+    </script>
+</body>
+</html>
