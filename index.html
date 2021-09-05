@@ -28,7 +28,6 @@
         .header{
             display: flex;
             justify-content: space-between;
-            flex: 0 1 auto;
             padding: 2em 3em;
             border-bottom: 2px solid lightgray;
             height: 7em;
@@ -38,16 +37,20 @@
             align-items: center;
 
         }
-        .menu{
-            display: flex;
-            justify-content: right;
-            align-items: flex-end;
-            flex-direction: column;
+        .dropdown-menu-icon{
+            border: none;
+            background: transparent;
+            cursor: pointer;
         }
+
 
         .menu-items{
             display: none;
-            background-color:rgba(233, 243, 236, 0.704);
+            background-color:rgba(233, 243, 236, 0.904);
+            position: absolute;
+            left:0;
+            top: 7em;
+            width: 100%;
             z-index: 1;
         }
         
@@ -62,12 +65,11 @@
             display: block;        
             padding: 1em;    
         }
-        
+
         .brand-icons{
-            display: flex;
-            justify-content: space-between;
-            min-width: 7em;
+            min-width: 6em;
         }
+        
         .brand-icons img {
             width: 1.5em;
             height: 1.5em;
@@ -138,7 +140,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            flex: 1 1 auto;
             height: 70vh;
             
             background-image: url("images/introductory-section.jpg");
@@ -151,7 +152,7 @@
             padding-bottom: 1em;
         }
 
-        .button {
+        .LearnMorebutton {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -173,11 +174,11 @@
             position: relative;
             padding: 1em;
         }
-        button > p {
+        .LearnMorebutton > p {
             color:white
         }
 
-        button::before {
+        .LearnMorebutton::before {
             content: '';
             border-radius: 3em;
             min-width: calc(10em + 1em);
@@ -192,7 +193,7 @@
             transition: all .3s ease-in-out 0s;
         }
 
-        .button:hover, .button:focus {
+        .LearnMorebutton:hover, .LearnMorebutton:focus {
             color: #313133;
             transform: translateY(-6px);
         }
@@ -214,6 +215,7 @@
             
             .menu-items{
                 display: flex;
+                position: static;
                 background-color: transparent;
                 /*align-items: center;*/
             }
@@ -230,12 +232,14 @@
             <img src="images/openkey-logo.png" alt="" width="150em" height="40em">
         </div>
         <div class="menu">
-            <img src="images/dropdown-icon.png" class="dropdown-menu-icon" alt="" width="50px" height="50px">
+            <button class="dropdown-menu-icon">
+                <img src="images/dropdown-icon.png" alt="" width="50px" height="50px">
+            </button>
             <div class="menu-items">
                 <a href="#">HOTELS</a>
                 <a href="#">GUESTS</a>
                 <a href="#">BLOG</a>
-
+    
                 <div class="brand-icons">
                     <a href="#" class="apple-icon">
                         <img src="images/apple.png" alt="">
@@ -246,13 +250,15 @@
                 </div>
             </div>
         </div>
+
+
     </header>
     
     <section id="introductory-section">
         <div class="introductory-content">
             <h1 style="font-size: 1.8em;"><span style="font-weight: lighter;">Unlock</span> <span style="font-weight: bold;">Travel Intelligence.</span> </h3>
             <h2 style="font-size: 1em;">The universal standart for mobile keyless hotel access has arrived</h2>
-            <button class="button">
+            <button class="LearnMorebutton">
                 <p>LEARN MORE</p> 
                 <img src="images/arrow-right.png" alt="" width="10em" height="10em">
             </button>
