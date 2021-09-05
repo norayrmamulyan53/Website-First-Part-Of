@@ -15,10 +15,6 @@
             color: gray;
         }
 
-        body{
-            height: 100vh;
-        }
-
         a {
             text-decoration: none;
         }
@@ -31,6 +27,11 @@
             padding: 2em 3em;
             border-bottom: 2px solid lightgray;
             height: 7em;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background: white;
         }
         .logo{
             display: flex;
@@ -200,11 +201,15 @@
 
 
         /* Partners Section */
-        .partners-section{
+        #partners-section{
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+        }
+
+        .additional-space{
+            height: 1600px;
         }
  
 
@@ -266,7 +271,7 @@
         <div class="down-arrow"></div>
     </section>
 
-    <section class="partners-section">
+    <section id="partners-section">
         <div class="curve-shape">
             <div id="curved-corner-bottomright"></div>   
             <div id="egg">
@@ -276,6 +281,7 @@
         </div>
 
         <h1 style="font-size: 1.8em;margin-top:2em"><span style="font-weight: lighter;">Brands We Work With</span></h3>
+        <div class="additional-space"></div>
     </section>
     
 
@@ -286,9 +292,16 @@
         const dropDownIcon=document.querySelector(".dropdown-menu-icon")
         
         dropDownIcon.addEventListener('click', ()=>{
-//             const dropDownMenu_state=window.getComputedStyle(dropDownMenu, null).display;            
-//             (dropDownMenu_state == "none") ? dropDownMenu.style.display="block" : dropDownMenu.style.display="none"
                 dropDownMenu.classList.toggle('active')
+        })
+
+        // Close navbar if user clicks anywere in document
+        document.addEventListener('click', (e) => {
+            const parentOfclickedObject = e.target.parentNode;
+            
+            if(parentOfclickedObject != dropDownIcon){
+                dropDownMenu.style.display="none"
+            }
         })
     </script>
 </body>
